@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Birthday Reminder App</title>
+
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
+     
+    
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Hind:400,300,700&subset=latin-ext);
+    
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    body {
+        background: white;
+        display: table;
+  }
+
+    .login-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+        font-family: 'Hind', sans-serif;
+        font-weight: 300;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .login-wrapper * {
+        transition: all 1s;
+    }
+
+    .login-wrapper .login-panel {
+        box-sizing: border-box;
+        display: table;
+        background-color: white;
+        width: 500px;
+        margin: 0 auto;
+        margin-left: 214px;
+        padding: 60px 40px 40px 40px;
+        /*animation: fade-in 1s ease-in 0s 1 alternate;*/
+        background-image: linear-gradient(to right, #ffafbd, #ffc3a0);
+         box-shadow: 0 0 50px rgba(1, 1, 1, .3);
+    }
+
+    .login-wrapper .login-panel:hover {
+        box-shadow: 0 0 50px rgba(1, 1, 1, .3);
+    }
+
+    .login-wrapper .login-panel label {
+        font-size: 16px;
+        display: block;
+        margin: 5px 0;
+        color: #34495e;
+        opacity: 1;
+        /*animation: fade-in 1s ease-in 1s 1 forwards;*/
+    }
+
+    .login-wrapper .login-panel input[type="text"]+label,
+    .login-wrapper .login-panel input[type="date"]+label {
+        position: relative;
+        color: #c4cacd;
+         top: -95px;
+        left: 5px;
+        /*transition: all .3s;
+        animation: label .3s ease-in 0s 1 forwards;
+        animation-play-state: paused;
+        animation-play-state: running;*/
+    }
+
+    .login-wrapper .login-panel input[type="text"]:focus+label,
+    .login-wrapper .login-panel input[type="date"]:focus+label {
+        font-size: 16px;
+        color: #34495e;
+        /*animation-fill-mode: forwards;*/
+    }
+
+    .login-wrapper .login-panel input[type="text"],
+    .login-wrapper .login-panel input[type="date"],
+    .login-wrapper .login-panel input[type="submit"],
+    #label1 {
+        font: 400 20px 'Hind', sans-serif;
+        width: 100%;
+        box-sizing: border-box;
+        border: 0;
+        border-left: 3px solid transparent;
+        appearance: none;
+        box-shadow: none;
+        border-radius: none;
+        display: block;
+
+        opacity: 1;
+        /* animation: fade-in 1s ease-in 1.5s 1 forwards;*/
+
+    }
+
+    .login-wrapper .login-panel input[type="text"],
+    .login-wrapper .login-panel input[type="date"] {
+        padding: 10px 20px;
+    }
+
+    .login-wrapper .login-panel input[type="submit"],
+    #label1 {
+        padding: 10px 96px;
+
+
+    }
+
+    .login-wrapper .login-panel input[type="text"],
+    .login-wrapper .login-panel input[type="date"],
+    .login-wrapper .login-panel input[type="checkbox"] {
+        margin-bottom: 20px;
+        background-color: #ecf0f1;
+        color: #34495e;
+    }
+
+    .login-wrapper .login-panel input[type="text"]:focus,
+    .login-wrapper .login-panel input[type="date"]:focus {
+        background-color: #E1E6E7
+    }
+
+    .login-wrapper .login-panel input[type="text"]:focus,
+    .login-wrapper .login-panel input[type="date"]:focus,
+    .login-wrapper .login-panel input[type="submit"]:focus,
+    #label1:focus {
+        outline: none;
+    }
+
+    .login-wrapper .login-panel input[type="text"]:valid,
+    .login-wrapper .login-panel input[type="date"]:valid {
+        border-left: 3px solid #3498db;
+    }
+
+
+
+    .login-wrapper .login-panel input[type="text"]:valid+label,
+    .login-wrapper .login-panel input[type="date"]:valid+label {
+
+        color: white;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: medium;
+    }
+
+    .login-wrapper .login-panel input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .login-wrapper .login-panel input[type="checkbox"],
+    .login-wrapper .login-panel label[for='remember'] {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .login-wrapper .login-panel label[for='remember'] {
+        position: relative;
+        font-size: 16px;
+        margin-top: -25px;
+    }
+
+    .login-wrapper .login-panel input[type="checkbox"]+[for='remember']:before {
+        content: '';
+        background: #ecf0f1;
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        text-align: center;
+        opacity: 0;
+        animation: fade-in 1s ease-in 2s 1 forwards;
+    }
+
+    .login-wrapper .login-panel input[type="checkbox"]:checked+[for='remember']:before {
+        background: #3498db;
+        box-shadow: inset 0px 0px 0px 5px #ecf0f1;
+    }
+
+    .login-wrapper .login-panel input[type="checkbox"]:checked+[for='remember'] {
+        color: #3498db;
+    }
+
+    .login-wrapper .login-panel input[type="checkbox"]:focus+[for='remember'] {
+        outline: 1px solid #ddd;
+    }
+
+    .login-wrapper .login-panel input[type="submit"],
+    #label1 {
+        text-transform: uppercase;
+        width: 100%;
+        /*background-color: #3498db;*/
+        color: white;
+        font-weight: 300;
+        letter-spacing: 10px;
+        margin-top: 15px;
+        cursor: pointer;
+
+        background-image: linear-gradient(to right, #F67062, #FC5296)
+    }
+
+    .login-wrapper .login-panel input[type="submit"]:hover,
+    #label1:hover {
+        background-image: linear-gradient(to left, #FF6B6C, #ADB2D3);
+    }
+
+    .login-wrapper .login-panel .forget-password {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+
+        font-size: 14px;
+        cursor: pointer;
+        opacity: 0;
+        animation: fade-in 1s ease-in 2s 1 forwards;
+        color: white;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: medium;
+    }
+
+    .login-wrapper .login-panel .forget-password:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .login-wrapper .login-panel {
+            width: 90%;
+            padding: 60px 20px 20px 20px;
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes label {
+        0% {
+            top: -58px;
+            left: 20px;
+            opacity: 1;
+        }
+
+        100% {
+            top: -98px;
+            left: 0;
+            opacity: 1;
+        }
+    }
+
+
+    #mySidebar {
+        width: 250px;
+
+    }
+
+    #main {
+        margin-left: 250px
+    }
+
+    [type=file] {
+        display: none;
+        text-align: center;
+    }
+
+            #header {
+  position: absolute;
+  margin-top: 0vh;
+  width: 79%;
+  text-align: center;
+  font-size: 333%;
+  font-family: sans-serif;
+  margin-left: 39px;
+  
+  /*
+  background: -webkit-linear-gradient( #F67062 , #FC5296);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  */
+  opacity: 0.5;
+}
+
+    </style>
+</head>
+
+<body>
+  <table>
+<tr>
+<td>
+    <div id="mySidebar" class="sidebar">
+          <a href="index.html">Check Birthdays</a>
+          <a href="form.html">Set Reminder</a>
+          <a href="contact.html">Developers</a>
+
+    </div>
+    <div id="main">
+        <div class="meter red">
+            <span style="width: 80%"></span>
+        </div>
+    </div>
+  </td>
+  <td>
+    <h1 id="header">Set Reminder</h1>
+   </td>
+   </tr>
+   </table>
+    <section class="login-wrapper">
+        <form class="login-panel">
+         
+            <input type="text" id="name1">
+            <label for="mail" unselectable="on">Name</label>
+            <input name="date" id="date1" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')">
+            <label for="date" unselectable="on">Date</label>
+      
+          <button type="button"  id="label1" onclick="getPathToFile()">Select File</button>
+          <input type="submit" value="Save Reminder" onclick="saveData()">
+            <a class="forget-password">Created By Mauli Tech</a>
+        </form>
+
+    </section>
+
+</body>
+
+</html>
